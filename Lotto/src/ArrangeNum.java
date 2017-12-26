@@ -4,28 +4,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class CutLetter {
-	public static void main(String[] args) throws FileNotFoundException {
+public class ArrangeNum {
+	ArrayList<String> zero = new ArrayList<String>();
+	ArrayList<String> one = new ArrayList<String>();
+	ArrayList<String> two = new ArrayList<String>();
+	ArrayList<String> three = new ArrayList<String>();
+	ArrayList<String> four = new ArrayList<String>();
+	ArrayList<String> five = new ArrayList<String>();
+	ArrayList<String> six = new ArrayList<String>();
+	ArrayList<String> seven = new ArrayList<String>();
+	ArrayList<String> eight = new ArrayList<String>();
+	ArrayList<String> nine = new ArrayList<String>();
+	
+	public ArrangeNum(String filePath) throws FileNotFoundException {
 //		String filePath = "C://Users//user//Dropbox//lotto//lotto.txt";
-		String filePath = "C://Users//user//Dropbox//JeabLotto//lotto.txt";
+//		String filePath = "C://Users//user//Dropbox//JeabLotto//lotto.txt";
 		Scanner sc = new Scanner(new File(filePath));
-		ArrayList<String> zero = new ArrayList<String>();
-		ArrayList<String> one = new ArrayList<String>();
-		ArrayList<String> two = new ArrayList<String>();
-		ArrayList<String> three = new ArrayList<String>();
-		ArrayList<String> four = new ArrayList<String>();
-		ArrayList<String> five = new ArrayList<String>();
-		ArrayList<String> six = new ArrayList<String>();
-		ArrayList<String> seven = new ArrayList<String>();
-		ArrayList<String> eight = new ArrayList<String>();
-		ArrayList<String> nine = new ArrayList<String>();
-
+		String input,s = "";
 		while (sc.hasNext()) {
-			String s = sc.nextLine().substring(9, 13);
-			//System.out.println(s);
-			String last = s.substring(3);
-			//System.out.println(last);
-			switch(last) {
+			input = sc.nextLine();
+			s = input.substring(9, 13);
+			//String last = s.substring(3);
+			switch(s.substring(3)) {
 				case "0" :zero.add(s);
 						  break;
 				case "1" :one.add(s);
@@ -61,7 +61,9 @@ public class CutLetter {
 		Collections.sort(seven);
 		Collections.sort(eight);
 		Collections.sort(nine);
-		
+	}
+	
+	public void printAllNum() {
 		for(String num : zero) {
 			System.out.println(num);
 		}
@@ -92,6 +94,20 @@ public class CutLetter {
 		for(String num : nine) {
 			System.out.println(num);
 		}
-		
 	}
+	
+	public void printNum(ArrayList<String> list){
+		for(String num : list) {
+			System.out.println(num);
+		}
+	}
+	
+	public String getNum(ArrayList<String> list) {
+		String temp = "";
+		for(String num : list) {
+			temp += num + "\n";
+		}
+		return temp;
+	}
+	
 }
