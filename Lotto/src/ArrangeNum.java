@@ -15,16 +15,20 @@ public class ArrangeNum {
 	ArrayList<String> seven = new ArrayList<String>();
 	ArrayList<String> eight = new ArrayList<String>();
 	ArrayList<String> nine = new ArrayList<String>();
+	ArrayList<String> all = new ArrayList<String>();
 	
 	public ArrangeNum(String filePath) throws FileNotFoundException {
-//		String filePath = "C://Users//user//Dropbox//lotto//lotto.txt";
-//		String filePath = "C://Users//user//Dropbox//JeabLotto//lotto.txt";
 		Scanner sc = new Scanner(new File(filePath));
 		String input,s = "";
 		while (sc.hasNext()) {
 			input = sc.nextLine();
-			s = input.substring(9, 13);
-			//String last = s.substring(3);
+			if(input.length() != 4) {
+				s = input.substring(9, 13);
+			}
+			else {
+				s = input;
+			}
+			
 			switch(s.substring(3)) {
 				case "0" :zero.add(s);
 						  break;
@@ -61,39 +65,17 @@ public class ArrangeNum {
 		Collections.sort(seven);
 		Collections.sort(eight);
 		Collections.sort(nine);
-	}
-	
-	public void printAllNum() {
-		for(String num : zero) {
-			System.out.println(num);
-		}
-		for(String num : one) {
-			System.out.println(num);
-		}
-		for(String num : two) {
-			System.out.println(num);
-		}
-		for(String num : three) {
-			System.out.println(num);
-		}
-		for(String num : four) {
-			System.out.println(num);
-		}
-		for(String num : five) {
-			System.out.println(num);
-		}
-		for(String num : six) {
-			System.out.println(num);
-		}
-		for(String num : seven) {
-			System.out.println(num);
-		}
-		for(String num : eight) {
-			System.out.println(num);
-		}
-		for(String num : nine) {
-			System.out.println(num);
-		}
+		
+		putInArrayList(zero);
+		putInArrayList(one);
+		putInArrayList(two);
+		putInArrayList(three);
+		putInArrayList(four);
+		putInArrayList(five);
+		putInArrayList(six);
+		putInArrayList(seven);
+		putInArrayList(eight);
+		putInArrayList(nine);
 	}
 	
 	public void printNum(ArrayList<String> list){
@@ -102,12 +84,10 @@ public class ArrangeNum {
 		}
 	}
 	
-	public String getNum(ArrayList<String> list) {
-		String temp = "";
+	public void putInArrayList(ArrayList<String> list){
 		for(String num : list) {
-			temp += num + "\n";
+			all.add(num);
 		}
-		return temp;
 	}
 	
 }
