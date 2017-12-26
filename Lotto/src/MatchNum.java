@@ -3,11 +3,14 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-//PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
-//writer.println("The first line");
-//writer.println("The second line");
-//writer.close();
+//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//Date date = new Date();
+//System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
 
 public class MatchNum {
 	/* 
@@ -15,6 +18,8 @@ public class MatchNum {
 	 * 
 	 * */
 	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date date = new Date();
 		String momFile = "C://Users//user//Dropbox//lotto//lotto.txt";
 		//String jeabFile = "C://Users//user//Dropbox//JeabLotto//lotto.txt";
 		String testFile = "C://Users//user//Desktop//lotto_num//lottoTest.txt";
@@ -25,11 +30,14 @@ public class MatchNum {
 		
 		
 		//randomNum(20,testFile);
-		mom.printNum(mom.all);
-		System.out.println("_____________________");
+		System.out.print(match(mom,test));
 		
-		test.printNum(test.all);
+		System.out.println(dateFormat.format(date)); 
 		
+		PrintWriter writer = new PrintWriter("C:\\Users\\user\\Desktop\\lotto_num\\match.txt", "UTF-8");
+		writer.println(dateFormat.format(date)); //2016/11/16 12:08:43
+		writer.println(match(mom,test));
+		writer.close();
 	}
 	
 	public static void randomNum(int amount, String file) {
@@ -49,4 +57,15 @@ public class MatchNum {
 			e.printStackTrace();
 		}
 	}
+	
+	public static String match(ArrangeNum less, ArrangeNum more) {
+		String match = "";
+		for(int i = 0; i< less.all.size(); i++) {
+			if(more.all.contains(less.all.get(i))) {
+				match += less.all.get(i) + ", ";
+			}
+		}
+		return match;
+	}
 }
+

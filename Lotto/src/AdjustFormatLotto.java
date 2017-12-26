@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Lotto {
+public class AdjustFormatLotto {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		String filePath = "C://Users//user//Desktop//lotto_num//lotto.txt";
