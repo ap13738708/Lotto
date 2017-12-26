@@ -30,11 +30,12 @@ public class MatchNum {
 		
 		
 		//randomNum(20,testFile);
-		System.out.print(match(mom,test));
-		
 		System.out.println(dateFormat.format(date)); 
+		System.out.println(match(mom,test));
 		
-		PrintWriter writer = new PrintWriter("C:\\Users\\user\\Desktop\\lotto_num\\match.txt", "UTF-8");
+		
+		
+		PrintWriter writer = new PrintWriter("C:\\Users\\user\\Dropbox\\lotto\\matched.txt", "UTF-8");
 		writer.println(dateFormat.format(date)); //2016/11/16 12:08:43
 		writer.println(match(mom,test));
 		writer.close();
@@ -65,6 +66,7 @@ public class MatchNum {
 				match += less.all.get(i) + ", ";
 			}
 		}
+		match = match.substring(0, match.lastIndexOf(","));
 		return match;
 	}
 }
