@@ -16,8 +16,10 @@ public class ArrangeNum {
 	ArrayList<String> eight = new ArrayList<String>();
 	ArrayList<String> nine = new ArrayList<String>();
 	ArrayList<String> all = new ArrayList<String>();
-	
-	public ArrangeNum(String filePath) throws FileNotFoundException {
+	int matched;
+	String id;
+	public ArrangeNum(String filePath,String id) throws FileNotFoundException {
+		this.id = id;
 		Scanner sc = new Scanner(new File(filePath));
 		String input,s = "";
 		while (sc.hasNext()) {
@@ -76,6 +78,16 @@ public class ArrangeNum {
 		putInArrayList(seven);
 		putInArrayList(eight);
 		putInArrayList(nine);
+	}
+	
+	public void setMatched(int i) {
+		this.matched = i;
+	}
+	public int getMatched() {
+		return this.matched;
+	}
+	public String getId() {
+		return this.id;
 	}
 	
 	public void printNum(ArrayList<String> list){
